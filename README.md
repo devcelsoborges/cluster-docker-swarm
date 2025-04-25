@@ -1,17 +1,23 @@
-﻿# Projeto Toshiro Shibakita - Docker e Microsserviços
+﻿# Projeto Toshiro Shibakita - Docker Swarm + AWS
 
-## Descrição
-Este projeto demonstra o uso de containers com Docker para separar os serviços de uma aplicação PHP com MySQL e Nginx. Inspirado no desafio da DIO com melhorias na estrutura de diretórios e uso de Docker Compose.
+## ☁️ Descrição
 
-## Tecnologias
-- Docker
-- Docker Compose
-- PHP 8.1 FPM
-- Nginx
-- MySQL 5.7
+Projeto prático containerizado com PHP + Nginx + MySQL. Essa versão foi adaptada para rodar em produção com Docker Swarm, ideal para ambientes como AWS EC2.
 
-## Como usar
+## 📦 Serviços
+
+- **PHP-FPM 8.1**
+- **Nginx**
+- **MySQL 5.7**
+
+## 🌐 Deploy com Docker Swarm
+
+### Pré-requisitos
+- Docker e Docker Swarm configurado
+- Duas ou mais instâncias EC2 (manager + workers)
+
+### Passos
+
+1. Inicie o swarm:
 ```bash
-git clone https://github.com/seu-usuario/toshiro-shibakita.git
-cd toshiro-shibakita
-docker-compose up --build
+docker swarm init

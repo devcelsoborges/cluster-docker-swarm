@@ -1,5 +1,4 @@
 ﻿CREATE DATABASE IF NOT EXISTS toshiro_db;
-
 USE toshiro_db;
 
 CREATE TABLE IF NOT EXISTS visitantes (
