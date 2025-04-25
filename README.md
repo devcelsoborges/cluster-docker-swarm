@@ -23,41 +23,42 @@ Projeto prático containerizado com PHP + Nginx + MySQL. Essa versão foi adapta
 
 1. **Inicie o Swarm na instância manager:**
 
-\`\`\`bash
+```bash
 docker swarm init --advertise-addr <IP_DA_INSTANCIA_MANAGER>
-\`\`\`
+```
 
 2. **Adicione os nós workers:**
 
-Copie o comando \`docker swarm join\` gerado pelo init e execute nas instâncias workers.
+Copie o comando `docker swarm join` gerado pelo init e execute nas instâncias workers.
 
 3. **Clone o repositório na máquina manager:**
 
-\`\`\`bash
-git clone https://github.com/devcelsoborges/cluster-docker-swarm.git
-\`\`\`
+```bash
+git clone https://github.com/devcelsoborges/cluster-docker-swarm.git 
+cd seu-repo
+```
 
 4. **Crie uma network overlay:**
 
-\`\`\`bash
+```bash
 docker network create -d overlay toshiro_net
-\`\`\`
+```
 
 5. **Deploy da stack:**
 
-\`\`\`bash
+```bash
 docker stack deploy -c docker-compose.yml toshiro
-\`\`\`
+```
 
 6. **Verifique os serviços:**
 
-\`\`\`bash
+```bash
 docker stack services toshiro
-\`\`\`
+```
 
 ## 📁 Estrutura do Projeto
 
-\`\`\`
+```plaintext
 .
 ├── docker-compose.yml
 ├── nginx/
@@ -67,41 +68,41 @@ docker stack services toshiro
 ├── src/
 │   └── index.php
 └── .env
-\`\`\`
+```
 
 ## ⚙️ Variáveis de Ambiente
 
-Crie um arquivo \`.env\` com o seguinte conteúdo:
+Crie um arquivo `.env` com o seguinte conteúdo:
 
-\`\`\`env
+```env
 MYSQL_ROOT_PASSWORD=sua_senha_root
 MYSQL_DATABASE=nome_banco
 MYSQL_USER=usuario
 MYSQL_PASSWORD=senha
-\`\`\`
+```
 
 ## 🛠️ Comandos Úteis
 
 - Subir os serviços:
-  \`\`\`bash
+  ```bash
   docker stack deploy -c docker-compose.yml toshiro
-  \`\`\`
+  ```
 
 - Ver logs de um serviço:
-  \`\`\`bash
+  ```bash
   docker service logs toshiro_php --follow
-  \`\`\`
+  ```
 
 - Escalar um serviço:
-  \`\`\`bash
+  ```bash
   docker service scale toshiro_php=3
-  \`\`\`
+  ```
 
 ## 📌 Observações
 
-- Certifique-se de que o diretório \`src/\` tem permissões corretas para o PHP.
+- Certifique-se de que o diretório `src/` tem permissões corretas para o PHP.
 - Configure seu DNS ou use o IP público da instância manager para acessar o app.
 
 ## 🧪 Testando
 
-Acesse \`http://<IP_DA_INSTANCIA_MANAGER>\` no navegador. Você deve ver a página inicial do PHP.
+Acesse `http://<IP_DA_INSTANCIA_MANAGER>` no navegador. Você deve ver a página inicial do PHP.
