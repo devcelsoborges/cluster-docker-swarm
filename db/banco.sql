@@ -1,0 +1,9 @@
+﻿CREATE DATABASE IF NOT EXISTS toshiro_db;
+
+USE toshiro_db;
+
+CREATE TABLE IF NOT EXISTS visitantes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL
+);
